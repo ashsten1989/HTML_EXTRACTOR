@@ -1,0 +1,27 @@
+package assignmentService;
+
+import java.io.File;
+import org.json.JSONObject;
+public class Main {
+
+	public static void main(String[] args) {
+		File file=new File("C:/Users/Stas/Desktop/Assigment_Service_T/hilton1.html");
+		JSONObject jason;
+		/*System.out.println("Is writeable:"+file.canWrite()); 
+        System.out.println("Is readable"+file.canRead()); 
+        System.out.println("Is a directory:"+file.isDirectory()); 
+        System.out.println("File Size in bytes "+file.length()); */
+		if(file.exists()){
+			Extractor hilton1=new HotelData(file);
+			jason=hilton1.Extract();
+			System.out.println(jason);
+		}
+		else
+		{
+			System.out.println("missing file");
+		}
+		
+
+	}
+
+}

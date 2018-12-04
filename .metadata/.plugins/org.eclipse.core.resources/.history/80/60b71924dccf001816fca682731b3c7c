@@ -1,0 +1,5 @@
+package assignmentService;
+
+public abstract class Extractor {
+
+}

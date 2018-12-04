@@ -1,0 +1,35 @@
+package assignmentService;
+
+import java.io.File;
+import java.util.Scanner;
+
+import org.json.JSONObject;
+import com.mongodb.client.*;
+import com.mongodb.client.gridfs.*;
+import com.mongodb.client.internal.*;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		//File file=new File("C:/Users/Stas/Desktop/Assigment_Service_T/hilton1.html");
+	
+		File file=new File(input.next());
+		JSONObject jason;
+		MongoClient mongoClient = MongoClients.create();
+		if(file.exists()){
+			Extractor hilton1=new HotelData(file);
+			jason=hilton1.Extract();
+			System.out.println(jason);
+			
+		}
+		else
+		{
+			System.out.println("missing file");
+		}
+		
+
+	}
+
+}

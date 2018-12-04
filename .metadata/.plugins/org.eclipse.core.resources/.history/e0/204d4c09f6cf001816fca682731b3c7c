@@ -1,0 +1,20 @@
+package assignmentService;
+
+import java.io.File;
+
+public class Main {
+
+	public static void main(String[] args) {
+		File file=new File("C:/Users/Stas/Desktop/Assigment_Service_T/hilton1.html");
+		if(file.exists()){
+			Extractor hilton1=new HotelData(file);
+		}
+		else
+		{
+			System.out.println("missing file");
+		}
+		
+
+	}
+
+}

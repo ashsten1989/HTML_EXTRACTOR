@@ -1,0 +1,23 @@
+package assignmentService;
+
+import java.io.File;
+import java.util.ArrayList;
+
+public class HotelData extends Extractor {
+public File htmlfile;
+HotelData(){
+	super();
+}
+
+	HotelData(File htmlfile) {
+		super(htmlfile);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public ArrayList<String> Extract(File htmlfile) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

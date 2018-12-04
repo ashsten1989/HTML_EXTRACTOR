@@ -1,0 +1,91 @@
+package assignmentService;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+//import org.jsoup.nodes.Element;
+
+
+public class HotelData extends Extractor {
+//private File htmlfile;
+	private String hotelname;
+	private double totalPerRoom;
+	private String arrivaldate;
+	private String departuredata;
+	private Date timestamp;
+
+
+	HotelData(File htmlfile) {
+		super(htmlfile);
+		//this.htmlfile=getHtmlfile();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public Collection<String> Extract() {
+		ArrayList<String> al=new ArrayList<String>();
+		File htmlfile=getHtmlfile();
+		try {
+		Document doc = Jsoup.parse(htmlfile, "UTF-8", " ");
+			//Document doc=Jsoup.connect("file:///C:/Users/Stas/Desktop/Assigment_Service_T/hilton1.html").get();
+			Elements link = doc.getElementsByAttributeStarting("id");
+			 for (int i=0; i<link.size();i++) {
+				 System.out.println(link.get(i));
+			 }
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return al;
+	}
+
+	public String getHotelname() {
+		return hotelname;
+	}
+
+	public void setHotelname(String hotelname) {
+		this.hotelname = hotelname;
+	}
+
+	public double getTotalPerRoom() {
+		return totalPerRoom;
+	}
+
+	public void setTotalPerRoom(double totalPerRoom) {
+		this.totalPerRoom = totalPerRoom;
+	}
+
+	public String getArrivaldate() {
+		return arrivaldate;
+	}
+
+	public void setArrivaldate(String arrivaldate) {
+		this.arrivaldate = arrivaldate;
+	}
+
+	public String getDeparturedata() {
+		return departuredata;
+	}
+
+	public void setDeparturedata(String departuredata) {
+		this.departuredata = departuredata;
+	}
+
+	public Date getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
+	}
+
+}
